@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{error}}
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+            <form action="/tasksa/crear_alumno/" method="post" class="card card-body">
+                <h1 class="text-center">Registrar Alumno</h1>
+                {% csrf_token %}
+                <div class="mb-3 mt-3">
+                    <label for="nom_alumno">Nombre del Alumno:</label>
+                    <input type="text" name="nom_alumno" id="nom_alumno" class="form-control" placeholder="Ingrese nombre del alumno">
+                </div>
+                <div class="mb-3">
+                    <label for="num_control">Numero de control:</label>
+                    <input type="text" name="num_control" id="num_control" class="form-control" placeholder="Ingrese el numero de control">
+                </div>
+                <div class="mb-3">
+                    <label for="semestre">Semestre:</label>
+                    <input type="text" name="semestre" id="semestre" class="form-control" placeholder="Ingrese el semestre">
+                </div>
+                <button class="btn btn-dark">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

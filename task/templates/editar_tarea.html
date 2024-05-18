@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+        <form method="post" class="card card-body">
+		<h1>Editar materia</h1>
+            {{error}}
+            {% csrf_token %}
+            {{form}}
+        <button class="btn btn-dark mt-5" type="submit">Guardar cambios</button>
+        </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

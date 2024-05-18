@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card mt-4" style="border: none;">
+        <div style="font-size: 60px; text-align: center;font-family: 'Roboto'"">
+            <p class="margin: 0">Materias</p>
+        </div>
+</div>
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <a name="" id="" class="btn btn-dark" href="{% url 'crear_materia' %}" role="button">Agregar materia</a>
+                </div>
+                <div class="d-flex">
+                    <form method="GET" action="" class="form-inline d-flex">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-sm" style="width: 150px;" placeholder="Buscar..." name="buscar">
+                            <div class="input-group-append">
+                                <button class="btn btn-dark btn-sm" type="submit" style="margin-left: 5px;">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <table class="table table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Clave</th>
+                    <th scope="col">Créditos</th>
+                    <th scope="col">Grupo</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for lista in lista %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ lista.id }}</td>
+                    <td>{{ lista.nom_materia }}</td>
+                    <td>{{ lista.clave_mat }}</td>
+                    <td>{{ lista.creditos }}</td>
+                    <td>{{ lista.grupo }}</td>
+                    <td>{{ lista.user.username }}</td>
+                    <td>
+                        <a name="" id="" class="btn btn-dark" href="{% url 'editar_materia' lista.id %}" role="button">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        |
+                        <a name="" id="" class="btn btn-dark" href="{% url 'eliminar_materia' lista.id %}" role="button">
+                            <i class="fa-solid fa-trash"></i> 
+
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

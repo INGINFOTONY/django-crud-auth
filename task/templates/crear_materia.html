@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{error}}
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+            <form action="/tasks/crear/" method="post" class="card card-body">
+                <h1 class="text-center">Registrar Materia</h1>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="nom_materia">Nombre de la materia:</label>
+                    <input type="text" name="nom_materia" id="nom_materia" class="form-control" placeholder="Ingrese nombre de la materia">
+                </div>
+                <div class="mb-3">
+                    <label for="clave_mat">Clave de la materia:</label>
+                    <input type="text" name="clave_mat" id="clave_mat" class="form-control" placeholder="Ingrese la clave de la materia">
+                </div>
+                <div class="mb-3">
+                    <label for="creditos">Creditos:</label>
+                    <input type="text" name="creditos" id="creditos" class="form-control" placeholder="Ingrese los creditos">
+                </div>
+                <div class="mb-3">
+                    <label for="grupo">Grupo:</label>
+                    <input type="text" name="grupo" id="grupo" class="form-control" placeholder="Ingrese el grupo">
+                </div>
+                <button class="btn btn-primary">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

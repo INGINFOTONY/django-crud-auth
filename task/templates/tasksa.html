@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card mt-4" style="border: none;">
+    <div style="font-size: 60px; text-align: center;font-family: 'Roboto'"">
+        <p class="margin: 0">Alumnos</p>
+    </div>
+</div>
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <a name="" id="" class="btn btn-dark" href="{% url 'crear_alumno' %}" role="button">Agregar Alumno</a>
+                </div>
+                <div class="d-flex">
+                    <form method="GET" action="" class="form-inline d-flex">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-sm" style="width: 150px;" placeholder="Buscar..." name="buscar" value="{{request.GET.buscar}}">
+                            <div class="input-group-append">
+                                <button class="btn btn-dark btn-sm" type="submit" style="margin-left: 5px;">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <table class="table table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre del alumno</th>
+                    <th scope="col">Numero de control</th>
+                    <th scope="col">Semestre</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for lista_A in lista_A %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td scoope="row">{{ lista_A.id }}</td>
+                    <td>{{ lista_A.nom_alumno }}</td>
+                    <td>{{ lista_A.num_control }}</td>
+                    <td>{{ lista_A.semestre }}</td>
+                    <td>
+                        <a name="" id="" class="btn btn-dark" href="{% url 'editar_alumno' lista_A.id %}" role="button">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        | 
+                        <a name="" id="" class="btn btn-dark" href="{% url 'eliminar_alumno' lista_A.id %}" role="button">
+                            <i class="fa-solid fa-trash"></i> 
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
